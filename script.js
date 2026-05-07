@@ -117,12 +117,14 @@ if (pdfCarousels.length > 0 && typeof pdfjsLib !== 'undefined') {
       pdfDoc.getPage(pageNum).then(page => {
         const dpr = window.devicePixelRatio || 1;
         const unscaled = page.getViewport({ scale: 1 });
-        const scale = (container.clientWidth || 600) / unscaled.width * dpr;
+        const scaleW = (container.clientWidth  || 600) / unscaled.width;
+        const scaleH = (container.clientHeight || 250) / unscaled.height;
+        const scale  = Math.min(scaleW, scaleH) * dpr;
         const vp = page.getViewport({ scale });
         canvas.width  = vp.width;
         canvas.height = vp.height;
-        canvas.style.width  = '100%';
-        canvas.style.height = 'auto';
+        canvas.style.width  = (vp.width  / dpr) + 'px';
+        canvas.style.height = (vp.height / dpr) + 'px';
         return page.render({ canvasContext: ctx, viewport: vp }).promise;
       }).then(() => {
         rendering = false;
@@ -151,9 +153,53 @@ if (pdfCarousels.length > 0 && typeof pdfjsLib !== 'undefined') {
   });
 }
 
+// Image lightbox
+const imgLb        = document.getElementById('img-lightbox');
+const imgLbImg     = document.getElementById('img-lightbox-img');
+const imgLbPag     = document.getElementById('img-lightbox-pagination');
+const imgLbPrev    = document.getElementById('img-lightbox-prev');
+const imgLbNext    = document.getElementById('img-lightbox-next');
+let imgLbSlides    = [];
+let imgLbIndex     = 0;
+let imgLbShowFn    = null;
+
+function updateImgLb() {
+  const img = imgLbSlides[imgLbIndex].querySelector('img');
+  imgLbImg.src = img.src;
+  imgLbImg.alt = img.alt;
+  const multi = imgLbSlides.length > 1;
+  imgLbPag.style.display  = multi ? '' : 'none';
+  imgLbPrev.style.display = multi ? '' : 'none';
+  imgLbNext.style.display = multi ? '' : 'none';
+  if (multi) imgLbPag.textContent = `${imgLbIndex + 1} / ${imgLbSlides.length}`;
+}
+function openImgLb(slides, index, showFn) {
+  imgLbSlides = slides; imgLbIndex = index; imgLbShowFn = showFn;
+  updateImgLb();
+  imgLb.classList.add('open');
+}
+function closeImgLb() { imgLb.classList.remove('open'); }
+
+imgLbPrev.addEventListener('click', () => {
+  imgLbIndex = (imgLbIndex - 1 + imgLbSlides.length) % imgLbSlides.length;
+  updateImgLb(); if (imgLbShowFn) imgLbShowFn(imgLbIndex);
+});
+imgLbNext.addEventListener('click', () => {
+  imgLbIndex = (imgLbIndex + 1) % imgLbSlides.length;
+  updateImgLb(); if (imgLbShowFn) imgLbShowFn(imgLbIndex);
+});
+document.getElementById('img-lightbox-close').addEventListener('click', closeImgLb);
+imgLb.addEventListener('click', e => { if (e.target === imgLb) closeImgLb(); });
+document.addEventListener('keydown', e => {
+  if (!imgLb.classList.contains('open')) return;
+  if (e.key === 'Escape') { closeImgLb(); return; }
+  if (e.key === 'ArrowLeft')  imgLbPrev.click();
+  if (e.key === 'ArrowRight') imgLbNext.click();
+});
+
 // Image carousels
 document.querySelectorAll('.media-carousel').forEach(carousel => {
-  const slides = carousel.querySelectorAll('.carousel-slide');
+  const slides = Array.from(carousel.querySelectorAll('.carousel-slide'));
   const pagination = carousel.querySelector('.carousel-pagination');
   let current = 0;
 
@@ -174,4 +220,9 @@ document.querySelectorAll('.media-carousel').forEach(carousel => {
     carousel.querySelector('.next').style.display = 'none';
     if (pagination) pagination.style.display = 'none';
   }
+
+  slides.forEach((slide, i) => {
+    const img = slide.querySelector('img');
+    if (img) img.addEventListener('click', () => openImgLb(slides, i, show));
+  });
 });
