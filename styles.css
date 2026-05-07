@@ -456,6 +456,143 @@ ul { list-style: none; }
 }
 
 /* ============================================================
+   PDF CAROUSEL
+   ============================================================ */
+.pdf-carousel {
+  position: relative;
+  width: 100%;
+  border-radius: var(--r-sm);
+  overflow: hidden;
+  background: #1a1a1a;
+  border: 1px solid var(--border);
+  outline: none;
+  cursor: default;
+}
+.pdf-carousel:focus {
+  box-shadow: 0 0 0 2px var(--g500);
+}
+.pdf-canvas {
+  display: block;
+  width: 100%;
+  height: auto;
+  cursor: zoom-in;
+}
+
+/* PDF Lightbox */
+.pdf-lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.88);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+}
+.pdf-lightbox.open { display: flex; }
+#lightbox-canvas {
+  display: block;
+  max-width: 90vw;
+  max-height: 85vh;
+  border-radius: var(--r-sm);
+  box-shadow: 0 8px 40px rgba(0,0,0,.6);
+}
+.lightbox-close {
+  position: fixed;
+  top: 18px;
+  right: 22px;
+  background: rgba(255,255,255,.12);
+  border: none;
+  color: #fff;
+  font-size: 1.4rem;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background .15s;
+  z-index: 1001;
+}
+.lightbox-close:hover { background: rgba(255,255,255,.25); }
+.pdf-lightbox .carousel-button { position: fixed; top: 50%; transform: translateY(-50%); }
+.pdf-lightbox .carousel-button.prev { left: 16px; }
+.pdf-lightbox .carousel-button.next { right: 16px; }
+.pdf-lightbox .carousel-pagination {
+  position: fixed;
+  bottom: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: .85rem;
+  color: rgba(255,255,255,.8);
+  background: rgba(0,0,0,.5);
+  padding: 4px 12px;
+  border-radius: 20px;
+}
+
+/* ============================================================
+   MEDIA CAROUSEL
+   ============================================================ */
+.media-carousel {
+  position: relative;
+  width: 100%;
+  border-radius: var(--r-sm);
+  overflow: hidden;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+}
+.carousel-track {
+  display: flex;
+  width: 100%;
+}
+.carousel-slide {
+  display: none;
+  width: 100%;
+  flex-shrink: 0;
+}
+.carousel-slide.active {
+  display: block;
+}
+.carousel-slide img {
+  width: 100%;
+  max-height: 340px;
+  object-fit: contain;
+  display: block;
+  background: #000;
+}
+.carousel-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,.45);
+  color: #fff;
+  border: none;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  font-size: 1.1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background .15s;
+  z-index: 2;
+}
+.carousel-button:hover { background: rgba(0,0,0,.7); }
+.carousel-button.prev { left: 8px; }
+.carousel-button.next { right: 8px; }
+.carousel-pagination {
+  position: absolute;
+  bottom: 8px;
+  right: 12px;
+  font-size: .72rem;
+  color: rgba(255,255,255,.8);
+  background: rgba(0,0,0,.45);
+  padding: 2px 7px;
+  border-radius: 20px;
+}
+
+/* ============================================================
    AWARDS
    ============================================================ */
 .awards-plain {

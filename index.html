@@ -50,14 +50,15 @@
     <div class="entry-list entry-grid">
 
       <div class="entry-card">
+       <div class="award-badge"> Research Position </div>
         <h3>Integrated Systems Neuroengineering (ISN) Lab</h3>
         <div class="entry-meta">
           <span class="role-label">Undergrad Research Assistant</span>
           <span class="pill">Dec 2025 – Present</span>
         </div>
         <ul class="bullets">
-          <li>Designed PCB in Altium integrating data acquisition from 5 sensors (EEG, PPG, temp, IMU) for an in-ear biosensor</li>
-          <li>Used Autodesk Inventor &amp; Blender to create mechanical model for the biosensor PCBs around the ear</li>
+          <li>Designing PCBs in Altium integrating data acquisition from 5 sensors (EEG, PPG, temp, IMU) for an in-ear biosensor</li>
+          <li>Using Autodesk Inventor to create mechanical model for the PCB</li>
         </ul>
         <div class="media-slot">
           <svg class="media-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h5l2 2h5v10H4V4z" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -66,14 +67,16 @@
       </div>
 
       <div class="entry-card">
+        <div class="award-badge"> Research Position </div>
         <h3>Advanced Robotics and Controls (ARC) Lab</h3>
         <div class="entry-meta">
           <span class="role-label">Undergrad Researcher</span>
           <span class="pill">Apr 2026 – Present</span>
         </div>
         <ul class="bullets">
-          <li>Wiring a Portable Haptic Assisted Bimanual System (PHABS)</li>
-          <li>Designed electronics rig in Fusion 360</li>
+          <li>Project: Portable Haptic Assisted Bimanual System (PHABS) --> aim for paper submission in Sept 2026 </li>
+          <li>Modeled electronics rig in Fusion 360</li>
+          <li>Calibrating AD4058B encoder, GM2280B motor, SimpleFOC motor driver w/ Arduino Mega </li>
         </ul>
         <div class="media-slot">
           <svg class="media-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h5l2 2h5v10H4V4z" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -82,6 +85,7 @@
       </div>
 
       <div class="entry-card">
+        <div class="award-badge"> Engineering Org </div>
         <h3>Students for the Exploration and Development of Space (SEDS)</h3>
         <div class="entry-meta">
           <span class="role-label">Avionics Member</span>
@@ -91,13 +95,20 @@
           <li>Responsible for design, validation, and assembly of PCBs and hardware for Riptide — aiming to be the world's first soft-landing, reusable vehicle at the collegiate level</li>
           <li>Currently designing next PCB using Altium, Autodesk Inventor, and Fusion 360 to house controls sensors</li>
         </ul>
-        <div class="media-slot">
-          <svg class="media-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h5l2 2h5v10H4V4z" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          Media coming soon
+        <div class="media-carousel" aria-label="SEDS project image carousel">
+          <div class="carousel-track">
+            <div class="carousel-slide">
+              <img src="images/seds-1.png" alt="SEDS project image 1" />
+            </div>
+          </div>
+          <button class="carousel-button prev" type="button" aria-label="Previous image">←</button>
+          <button class="carousel-button next" type="button" aria-label="Next image">→</button>
+          <div class="carousel-pagination">1/1</div>
         </div>
       </div>
 
       <div class="entry-card">
+        <div class="award-badge"> Engineering Org </div>
         <h3>Triton Robotics</h3>
         <div class="entry-meta">
           <span class="role-label">Electronics Apprentice</span>
@@ -105,10 +116,36 @@
         </div>
         <ul class="bullets">
           <li>Designing PCBs and overseeing wiring/component management among 3 robots (autonomous and driver-controlled) in the annual RoboMaster North America competition</li>
+          <li> Created slip ring breakout board to connect 6 power wires and 11-12 signals wires for each robot</li>
+          <li> Designing Nucleo Breakout board for embedded integration</li>
         </ul>
-        <div class="media-slot">
-          <svg class="media-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h5l2 2h5v10H4V4z" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          Media coming soon
+        <div class="pdf-carousel" data-pdf="images/tr-slides.pdf" tabindex="0" aria-label="Triton Robotics presentation slides">
+          <canvas class="pdf-canvas"></canvas>
+          <button class="carousel-button prev" type="button" aria-label="Previous slide">←</button>
+          <button class="carousel-button next" type="button" aria-label="Next slide">→</button>
+          <div class="carousel-pagination">Loading…</div>
+        </div>
+      </div>
+
+      <div class="entry-card">
+        <div class="award-badge"> Paid Job </div>
+        <h3>Qualcomm Institute Makerspace</h3>
+        <div class="entry-meta">
+          <span class="role-label">Makerspace Intern</span>
+          <span class="pill">Mar 2025 – Present</span>
+        </div>
+        <ul class="bullets">
+          <li>Troubleshooting equipment and assisting with projects</li>
+        </ul>
+        <div class="media-carousel" aria-label="Qualcomm Makerspace image carousel">
+          <div class="carousel-track">
+            <div class="carousel-slide">
+              <img src="images/dib.png" alt="Qualcomm Institute Makerspace" />
+            </div>
+          </div>
+          <button class="carousel-button prev" type="button" aria-label="Previous image">←</button>
+          <button class="carousel-button next" type="button" aria-label="Next image">→</button>
+          <div class="carousel-pagination">1/1</div>
         </div>
       </div>
 
@@ -125,11 +162,13 @@
       <div class="project-card">
         <div class="award-badge">1st Place &mdash; MLH Hard Hacks @ UCSD &middot; Advanced Track: Security</div>
         <h3>The Vault</h3>
-        <p class="meta-text">January 2025 &middot; Hardware Hackathon</p>
+        <p class="meta-text">January 2025 &middot; UCSD Hard Hacks</p>
         <p class="project-desc">4-layer encrypted safe focused on hardware implementation and software integration. Built with a 4&times;4 membrane keypad, fingerprint scanner, camera, Odin1 LiDAR (facial recognition), Arduino Mega 2560, 24V&ndash;12V buck converter, and Intel NUC. All 3D components modeled in Autodesk Inventor; assembled in-house.</p>
-        <div class="media-slot">
-          <svg class="media-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h5l2 2h5v10H4V4z" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          Media coming soon
+        <div class="pdf-carousel" data-pdf="images/hacks-slides.pdf" tabindex="0" aria-label="Hard Hacks presentation slides">
+          <canvas class="pdf-canvas"></canvas>
+          <button class="carousel-button prev" type="button" aria-label="Previous slide">←</button>
+          <button class="carousel-button next" type="button" aria-label="Next slide">→</button>
+          <div class="carousel-pagination">Loading…</div>
         </div>
       </div>
 
@@ -138,9 +177,11 @@
         <h3>Armillary Sphere</h3>
         <p class="meta-text">September – November 2025</p>
         <p class="project-desc">Select a celestial object on an LCD display and a laser automatically rotates to point in its direction. Used Autodesk Inventor to integrate hardware and software; all parts 3D printed and assembled in-house.</p>
-        <div class="media-slot">
-          <svg class="media-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h5l2 2h5v10H4V4z" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          Media coming soon
+        <div class="pdf-carousel" data-pdf="images/ieee.pdf" tabindex="0" aria-label="IEEE project presentation slides">
+          <canvas class="pdf-canvas"></canvas>
+          <button class="carousel-button prev" type="button" aria-label="Previous slide">←</button>
+          <button class="carousel-button next" type="button" aria-label="Next slide">→</button>
+          <div class="carousel-pagination">Loading…</div>
         </div>
       </div>
 
@@ -231,9 +272,11 @@
           <li>Modeled custom components: sensor casings, brackets, and electronics belly pan using Bambu, Prusa, and CNC</li>
           <li>Implemented and maintained robot electronics architecture (power distribution, sensors, CAN, wiring reliability)</li>
         </ul>
-        <div class="media-slot">
-          <svg class="media-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h5l2 2h5v10H4V4z" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          Media coming soon
+        <div class="pdf-carousel" data-pdf="images/frc-slides.pdf" tabindex="0" aria-label="FIRST Robotics presentation slides">
+          <canvas class="pdf-canvas"></canvas>
+          <button class="carousel-button prev" type="button" aria-label="Previous slide">←</button>
+          <button class="carousel-button next" type="button" aria-label="Next slide">→</button>
+          <div class="carousel-pagination">Loading…</div>
         </div>
       </div>
 
@@ -262,9 +305,9 @@
   <div class="container">
     <h2 class="section-title">Skills</h2>
     <div class="skills-text">
-      <p><span class="skills-category">Hardware</span> Altium, EasyEDA, Soldering, PCB Design</p>
+      <p><span class="skills-category">Hardware</span> Altium, EasyEDA, Soldering, KiCAD, PCB Design</p>
       <p><span class="skills-category">Coding</span> Arduino, Python, Java, C</p>
-      <p><span class="skills-category">Mechanical</span> Autodesk Inventor, Fusion 360, 3D Printing</p>
+      <p><span class="skills-category">Mechanical</span> Autodesk Inventor, Fusion 360, Onshape, 3D Printing</p>
       <p><span class="skills-category">Tools</span> Google Sheets, Google Colab, Excel</p>
     </div>
   </div>
@@ -304,6 +347,16 @@
   </div>
 </footer>
 
+<!-- PDF Lightbox -->
+<div id="pdf-lightbox" class="pdf-lightbox" role="dialog" aria-modal="true" aria-label="Enlarged slide view">
+  <button class="lightbox-close" id="lightbox-close" aria-label="Close">&#x2715;</button>
+  <button class="carousel-button prev" id="lightbox-prev" aria-label="Previous slide">←</button>
+  <canvas id="lightbox-canvas"></canvas>
+  <button class="carousel-button next" id="lightbox-next" aria-label="Next slide">→</button>
+  <div class="carousel-pagination" id="lightbox-pagination"></div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
 <script src="script.js"></script>
 </body>
 </html>

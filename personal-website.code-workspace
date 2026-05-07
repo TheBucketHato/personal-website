@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"name": "personal-website",
+			"path": "."
+		}
+	],
+	"settings": {},
+	"extensions": {
+		"recommendations": [
+			"platformio.platformio-ide"
+		]
+	}
+}
