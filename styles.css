@@ -398,6 +398,19 @@ ul { list-style: none; }
 }
 .subsection-title:first-of-type { margin-top: 0; }
 
+/* Compact skills (when placed above Ongoing) */
+.skills-compact { padding: 18px 0; }
+.skills-compact-title {
+  font-size: .72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  color: var(--g500);
+  margin-bottom: 8px;
+}
+.skills-compact-text { flex-direction: row; flex-wrap: wrap; gap: 4px 24px; }
+.skills-compact-text p { font-size: .78rem; line-height: 1.5; }
+
 /* Skills plain-text block */
 .skills-text {
   display: flex;
