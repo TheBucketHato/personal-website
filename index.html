@@ -11,6 +11,14 @@
 </head>
 <body>
 
+<!-- ===================== INTRO OVERLAY ===================== -->
+<div id="intro-overlay" aria-hidden="true">
+  <div class="overlay-content">
+    <p class="overlay-eyebrow">Hiya! I'm</p>
+    <h1 class="overlay-name">Vela Benedicto</h1>
+  </div>
+</div>
+
 <!-- ===================== NAV ===================== -->
 <nav id="navbar">
   <div class="nav-inner">
@@ -61,7 +69,6 @@
   <div class="container">
     <h2 class="section-title">Ongoing</h2>
     <div class="entry-list entry-grid">
-
       <div class="entry-card">
        <div class="award-badge"> Research Position </div>
         <h3>Integrated Systems Neuroengineering (ISN) Lab</h3>
@@ -70,8 +77,8 @@
           <span class="pill">Dec 2025 – Present</span>
         </div>
         <ul class="bullets">
-          <li>Designing PCBs in Altium integrating data acquisition from 5 sensors (EEG, PPG, temp, IMU) for an in-ear biosensor</li>
-          <li>Using Autodesk Inventor to create mechanical model for the PCB</li>
+          <li>Designing PCBs in Altium integrating data acquisition from 5+ sensors (e.g. EEG, more TBA) for an in-ear biosensor</li>
+          <li>Using Autodesk Inventor to create mechanical model for the PCB housing and electrode placement</li>
         </ul>
         <div class="media-slot">
           <svg class="media-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h5l2 2h5v10H4V4z" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -87,9 +94,9 @@
           <span class="pill">Apr 2026 – Present</span>
         </div>
         <ul class="bullets">
-          <li>Project: Portable Haptic Assisted Bimanual System (PHABS) --> aim for paper submission in Sept 2026 </li>
+          <li>Project: Portable Haptic Assisted Bimanual System (PHABS) --> aiming for paper submission in Sept 2026 </li>
           <li>Modeled electronics rig in Fusion 360</li>
-          <li>Calibrating AD4058B encoder, GM2280B motor, SimpleFOC motor driver w/ Arduino Mega </li>
+          <li>Calibrating 3 phase bldc, magnetic encoder, motor driver w/ Arduino Mega </li>
         </ul>
         <div class="media-slot">
           <svg class="media-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h5l2 2h5v10H4V4z" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -111,12 +118,18 @@
         <div class="media-carousel" aria-label="SEDS project image carousel">
           <div class="carousel-track">
             <div class="carousel-slide">
+              <img src="images/seds-reflow.png" alt="SEDS reflow" />
+            </div>
+            <div class="carousel-slide">
               <img src="images/seds-1.png" alt="SEDS project image 1" />
+            </div>
+            <div class="carousel-slide">
+              <img src="images/seds-2.png" alt="SEDS project image 2" style="transform:rotate(-90deg)" />
             </div>
           </div>
           <button class="carousel-button prev" type="button" aria-label="Previous image">←</button>
           <button class="carousel-button next" type="button" aria-label="Next image">→</button>
-          <div class="carousel-pagination">1/1</div>
+          <div class="carousel-pagination">1/3</div>
         </div>
       </div>
 
@@ -129,8 +142,8 @@
         </div>
         <ul class="bullets">
           <li>Designing PCBs and overseeing wiring/component management among 3 robots (autonomous and driver-controlled) in the annual RoboMaster North America competition</li>
-          <li> Created slip ring breakout board to connect 6 power wires and 11-12 signals wires for each robot</li>
-          <li> Designing Nucleo Breakout board for embedded integration</li>
+          <li>Created slip ring breakout board to connect 6 power wires and 11-12 signal wires for each robot</li>
+          <li>Designing Nucleo Breakout board for embedded integration</li>
         </ul>
         <div class="pdf-carousel" data-pdf="images/tr-slides.pdf" tabindex="0" aria-label="Triton Robotics presentation slides">
           <canvas class="pdf-canvas"></canvas>
@@ -148,9 +161,9 @@
           <span class="pill">Mar 2025 – Present</span>
         </div>
         <ul class="bullets">
-          <li>Wired and drilled 3-phase contactor, current sensor, Fabman onto vertical bandsaw</li>
-          <li>Mentor and guide students in using fabrication tools, electronics equipment, and workshop resources</li>
-          <li>Manage and maintain equipment (reflow oven, digital magnifiers, solder stations, etc.), 3D printers (Bambu A1/A1 Mini, Prusa), laser cutters, CNC routers, heavy power machinery</li>
+          <li>Retrofitted a 3-phase contactor, current sensor, and Fabman access controller into a vertical bandsaw for automated monitoring and control</li>         
+          <li>Advise and mentor students in using fabrication tools and best design practices (Epilog laser cutters, 3D printers), electronics equipment (specialty), and workshop resources</li>
+          <li>Maintain, troubleshoot, and update Makerspace equipment (electronics tools - reflow oven, digital magnifiers, solder stations, etc.), 3D printers (Bambu A1 Mini/P1S/H2D, Prusa MK4S), Epilog laser cutters, metal vertical band saw, heavy power machinery, etc.</li>
         </ul>
         <div class="media-carousel" aria-label="Qualcomm Makerspace image carousel">
           <div class="carousel-track">
@@ -160,10 +173,13 @@
             <div class="carousel-slide">
               <img src="images/dib-1.png" alt="Qualcomm Institute Makerspace 2" />
             </div>
+            <div class="carousel-slide">
+              <img src="images/dib-2.png" alt="Qualcomm Institute Makerspace 3" />
+            </div>
           </div>
           <button class="carousel-button prev" type="button" aria-label="Previous image">←</button>
           <button class="carousel-button next" type="button" aria-label="Next image">→</button>
-          <div class="carousel-pagination">1/2</div>
+          <div class="carousel-pagination">1/3</div>
         </div>
       </div>
 
@@ -196,6 +212,7 @@
         <p class="meta-text">September – November 2025</p>
         <p class="project-desc">Select a celestial object on an LCD display and a laser automatically rotates to point in its direction. Used Autodesk Inventor to integrate hardware and software; all parts 3D printed and assembled in-house.</p>
         <div class="pdf-carousel" data-pdf="images/ieee.pdf" tabindex="0" aria-label="IEEE project presentation slides">
+          <img class="pdf-carousel-img" src="images/ieee-sphere.png" alt="Armillary Sphere" />
           <canvas class="pdf-canvas"></canvas>
           <button class="carousel-button prev" type="button" aria-label="Previous slide">←</button>
           <button class="carousel-button next" type="button" aria-label="Next slide">→</button>
@@ -361,6 +378,7 @@
   <div class="carousel-pagination" id="lightbox-pagination"></div>
 </div>
 
+<script data-goatcounter="https://thebuckethat.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
 <script src="script.js"></script>
 </body>

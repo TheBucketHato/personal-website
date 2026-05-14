@@ -1,3 +1,64 @@
+// Intro — center greeting flies to hero position
+setTimeout(() => {
+  const overlay    = document.getElementById('intro-overlay');
+  const ovEyebrow  = overlay.querySelector('.overlay-eyebrow');
+  const ovName     = overlay.querySelector('.overlay-name');
+  const heroEyebrow = document.querySelector('.hero-eyebrow');
+  const heroName    = document.querySelector('.hero-name');
+
+  // Snapshot all rects before any DOM changes
+  const fromEy = ovEyebrow.getBoundingClientRect();
+  const toEy   = heroEyebrow.getBoundingClientRect();
+  const fromNm = ovName.getBoundingClientRect();
+  const toNm   = heroName.getBoundingClientRect();
+
+  // Use font-size ratio for scale (same text content, same font)
+  const scaleEy = parseFloat(getComputedStyle(heroEyebrow).fontSize) /
+                  parseFloat(getComputedStyle(ovEyebrow).fontSize);
+  const scaleNm = parseFloat(getComputedStyle(heroName).fontSize) /
+                  parseFloat(getComputedStyle(ovName).fontSize);
+
+  // Hide real hero text while overlay text flies in
+  heroEyebrow.style.visibility = 'hidden';
+  heroName.style.visibility    = 'hidden';
+
+  // Freeze animated opacity, then kill CSS animations
+  [ovEyebrow, ovName].forEach(el => {
+    el.style.opacity   = getComputedStyle(el).opacity;
+    el.style.animation = 'none';
+  });
+
+  // Pin each element at its current screen position
+  function pin(el, rect) {
+    el.style.position        = 'fixed';
+    el.style.top             = rect.top  + 'px';
+    el.style.left            = rect.left + 'px';
+    el.style.width           = rect.width + 'px';
+    el.style.margin          = '0';
+    el.style.transformOrigin = 'top left';
+  }
+  pin(ovEyebrow, fromEy);
+  pin(ovName,    fromNm);
+
+  // Animate both to their hero positions
+  requestAnimationFrame(() => requestAnimationFrame(() => {
+    const ease = '0.7s cubic-bezier(0.76,0,0.24,1)';
+    ovEyebrow.style.transition = `transform ${ease}`;
+    ovEyebrow.style.transform  = `translate(${toEy.left - fromEy.left}px,${toEy.top - fromEy.top}px) scale(${scaleEy})`;
+    ovName.style.transition    = `transform ${ease}`;
+    ovName.style.transform     = `translate(${toNm.left - fromNm.left}px,${toNm.top - fromNm.top}px) scale(${scaleNm})`;
+
+    ovName.addEventListener('transitionend', e => {
+      if (e.propertyName !== 'transform') return;
+      heroEyebrow.style.visibility = '';
+      heroName.style.visibility    = '';
+      overlay.style.transition     = 'opacity 0.2s ease';
+      overlay.style.opacity        = '0';
+      setTimeout(() => overlay.remove(), 220);
+    });
+  }));
+}, 2000);
+
 // Mobile nav toggle
 const toggle = document.getElementById('nav-toggle');
 const navLinks = document.getElementById('nav-links');
@@ -106,14 +167,24 @@ if (pdfCarousels.length > 0 && typeof pdfjsLib !== 'undefined') {
     const pagination = container.querySelector('.carousel-pagination');
     const prevBtn = container.querySelector('.carousel-button.prev');
     const nextBtn = container.querySelector('.carousel-button.next');
+    const leadImg = container.querySelector('.pdf-carousel-img');
     let pdfDoc    = null;
-    let currentPage = 1;
+    let currentPage = leadImg ? 0 : 1;
     let rendering = false;
+
+    function totalSlides() { return pdfDoc ? pdfDoc.numPages + (leadImg ? 1 : 0) : 0; }
+
+    function showLeadImg() {
+      leadImg.style.display = '';
+      canvas.style.display = 'none';
+      pagination.textContent = `1 / ${totalSlides()}`;
+    }
 
     function renderPage(pageNum) {
       if (rendering) return;
       rendering = true;
       currentPage = pageNum;
+      if (leadImg) canvas.style.display = '';
       pdfDoc.getPage(pageNum).then(page => {
         const dpr = window.devicePixelRatio || 1;
         const unscaled = page.getViewport({ scale: 1 });
@@ -128,17 +199,34 @@ if (pdfCarousels.length > 0 && typeof pdfjsLib !== 'undefined') {
         return page.render({ canvasContext: ctx, viewport: vp }).promise;
       }).then(() => {
         rendering = false;
-        pagination.textContent = `${pageNum} / ${pdfDoc.numPages}`;
+        const displayPage = leadImg ? pageNum + 1 : pageNum;
+        pagination.textContent = `${displayPage} / ${totalSlides()}`;
       });
     }
 
+    if (leadImg) canvas.style.display = 'none';
+
     pdfjsLib.getDocument(container.dataset.pdf).promise.then(doc => {
       pdfDoc = doc;
-      renderPage(1);
-      prevBtn.addEventListener('click', () => { if (currentPage > 1) renderPage(currentPage - 1); });
-      nextBtn.addEventListener('click', () => { if (currentPage < pdfDoc.numPages) renderPage(currentPage + 1); });
+      if (leadImg) {
+        showLeadImg();
+      } else {
+        renderPage(1);
+      }
+      prevBtn.addEventListener('click', () => {
+        if (currentPage === 0) return;
+        if (currentPage === 1 && leadImg) { currentPage = 0; showLeadImg(); }
+        else if (currentPage > 1) renderPage(currentPage - 1);
+      });
+      nextBtn.addEventListener('click', () => {
+        if (leadImg && currentPage === 0) { currentPage = 1; leadImg.style.display = 'none'; renderPage(1); }
+        else if (currentPage < pdfDoc.numPages) renderPage(currentPage + 1);
+      });
     }).catch(() => { pagination.textContent = 'Could not load PDF'; });
 
+    if (leadImg) {
+      leadImg.addEventListener('click', () => openImgLb([{ querySelector: () => leadImg }], 0, null));
+    }
     canvas.addEventListener('click', () => { if (pdfDoc) openLightbox(pdfDoc, currentPage, renderPage); });
 
     container.addEventListener('keydown', e => {
