@@ -42,7 +42,7 @@ setTimeout(() => {
 
   // Animate both to their hero positions
   requestAnimationFrame(() => requestAnimationFrame(() => {
-    const ease = '0.7s cubic-bezier(0.76,0,0.24,1)';
+    const ease = '0.35s cubic-bezier(0.76,0,0.24,1)';
     ovEyebrow.style.transition = `transform ${ease}`;
     ovEyebrow.style.transform  = `translate(${toEy.left - fromEy.left}px,${toEy.top - fromEy.top}px) scale(${scaleEy})`;
     ovName.style.transition    = `transform ${ease}`;
@@ -57,7 +57,7 @@ setTimeout(() => {
       setTimeout(() => overlay.remove(), 220);
     });
   }));
-}, 2000);
+}, 1000);
 
 // Mobile nav toggle
 const toggle = document.getElementById('nav-toggle');
