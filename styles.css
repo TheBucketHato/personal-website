@@ -245,6 +245,36 @@ ul { list-style: none; }
   gap: 12px;
   flex-wrap: wrap;
 }
+.hero-layout {
+  display: flex;
+  align-items: center;
+  gap: 48px;
+}
+.hero-text {
+  flex: 1 1 0;
+  min-width: 0;
+}
+.hero-photo {
+  flex: 0 0 auto;
+}
+.hero-selfie {
+  width: 270px;
+  height: 270px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid var(--g300);
+  box-shadow: 0 4px 24px rgba(0,0,0,.12);
+}
+@media (max-width: 600px) {
+  .hero-layout {
+    flex-direction: column-reverse;
+    gap: 28px;
+  }
+  .hero-selfie {
+    width: 160px;
+    height: 160px;
+  }
+}
 
 /* ============================================================
    SECTION TITLES
