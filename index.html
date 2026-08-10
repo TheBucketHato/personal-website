@@ -100,9 +100,8 @@
         </div>
         <ul class="bullets">
           <li>Project: Portable Haptic Assisted Bimanual System V2 (PHABS) --> aiming for ICRA paper submission in Sept 2026 </li>
-          <li>Modeled electronics rig in <b>Fusion 360</b></li>
-          <li>Calibrated 3 phase bldc, magnetic encoder, motor driver w/ Arduino Mega </li>
-          <li>Currently integrating all systems together using a <b>22V & 8V PSU</b> and later expanding in sim</li>
+          <li>Integrated 9 different sensors (BNO055 IMU, BMP388, TOF, AS5048B magnetic encoder) and embedded firmware on a Teensy 4.1 in C for real-time data acquisition (position, calibration, IIR low-pass filtering) alongside closed-loop PWM motor control for force feedback rendering. </li>
+          <li>Designed and ran hardware validation for embedded testing, including static-noise characterization of potentiometer and encoder signals, open-loop BLDC motor control and magnetic encoder verification via SimpleFOC/I2C, and multi-channel IMU + barometer sensor fusion (complementary filtering with zero-velocity updates) across separate I2C buses. </li>
         </ul>
         <div class="media-slot">
           <svg class="media-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h5l2 2h5v10H4V4z" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -118,9 +117,10 @@
           <span class="pill">Oct 2025 – Present</span>
         </div>
         <ul class="bullets">
-          <li>Designing PCBs and overseeing wiring/component management among 3 robots (autonomous and driver-controlled) in the annual RoboMaster North America competition</li>
-          <li>Created <b>slip ring breakout board </b> to connect 6 power wires and 11-12 signal wires for each robot</li>
-          <li>Designing <b>Nucleo Breakout board </b> for embedded integration in <b>EasyEDA</b></li>
+          <li>Overseeing wiring/component management among our 3 robots (autonomous, driver-controlled) in the annual RoboMaster North America competition across a team of 5 members and created standardized electronics practices.</li>
+        <li>Designed slip ring PCB to distribute 6 24V power wires across 3 lines and 12 signal wires (CAN, UART) in EasyEDA, using Phoenix, JST-XH, JST-GH, and aviator connectors. </li>
+        <li>Designing a 4 layer power (5V, 12V, 24V) signal distribution (CAN, UART) PCB for a competition robotics platform, integrating slip ring, motor controller, and buck conversion into a single board to reduce wiring complexity and failure points in EasyEDA.</li>
+        <li>Evaluating magnetic rotary encoder ICs (AS5047P, AS5048A/B, AS5600, MT6835) across SPI/I²C interfaces, resolution (12–21 bit), and sampling rate to replace a failure-prone commercial encoder with a lower-cost, more reliable custom design with Altium and Autodesk Inventor.</li>
         </ul>
         <div class="pdf-carousel" data-pdf="images/tr-slides.pdf" tabindex="0" aria-label="Triton Robotics presentation slides">
           <canvas class="pdf-canvas"></canvas>
@@ -230,9 +230,11 @@
         <h3>Students for the Exploration and Development of Space (SEDS)</h3>
           <span class="role-label">Avionics Member | Oct '25 - June '26</span>
         <ul class="bullets">
-          <li>Responsible for design, validation, and assembly of PCBs and hardware for Riptide — aiming to be the world's first soft-landing, reusable vehicle at the collegiate level</li>
-          <li> Hand-assembled <b>3 PCBs with 100+ Digikey components </b> using a reflow oven, solder paste, tweezers</li>
-          <li>Currently designing next PCB using <b>Altium, Autodesk Inventor, and Fusion 360 </b> to house controls sensors (24V-12V, 5V) - 3 IMUs, Jetson Nano, 2 LiDAR, RTK GPS, 2 buck converters</li>
+          <li>Responsible for the design, validation, and assembly of PCBs and hardware for our rocket, Riptide, which aims to be the world’s first soft landing, reusable vehicle at the collegiate level. </li>
+         <li> Designed a PCB integrating avionics and sensor systems (3 IMUs, a Jetson Orin Nano, and an RTK GPS module) with dual buck converters (12V, 5V) for power regulation, using Altium's MCAD Co-Design workflow with Autodesk Inventor to synchronize PCB layout with a custom-shaped enclosure modeled in Autodesk Inventor.</li>
+          <li>Assembled 3 PCBs with 100+ unique components via SMD soldering & reflow oven for Avionics Bay. </li>
+
+
         </ul>
         <div class="media-carousel" aria-label="SEDS project image carousel">
           <div class="carousel-track">
