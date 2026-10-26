@@ -29,7 +29,7 @@
     <ul class="nav-links" id="nav-links">
       <li><a href="#ongoing">Ongoing</a></li>
       <li><a href="#projects">Projects</a></li>
-      <li><a href="#experience">Research</a></li>
+      <li><a href="#research">Research</a></li>
       <li><a href="#skills">Skills</a></li>
       <li><a href="#awards">Awards</a></li>
       <li><a href="#contact" class="nav-cta">Contact</a></li>
@@ -92,20 +92,26 @@
       </div>
 
       <div class="entry-card">
-        <div class="award-badge"> Research Position </div>
+        <div class="award-badge"> Research Position &middot; 2nd Author, ICRA 2027 Submission </div>
         <h3>Advanced Robotics and Controls (ARC) Lab</h3>
         <div class="entry-meta">
           <span class="role-label">Undergrad Researcher</span>
           <span class="pill">Apr 2026 – Present</span>
         </div>
         <ul class="bullets">
-          <li>Project: Portable Haptic Assisted Bimanual System V2 (PHABS) --> aiming for ICRA paper submission in Sept 2026 </li>
-          <li>Integrated 9 different sensors (BNO055 IMU, BMP388, TOF, AS5048B magnetic encoder) and embedded firmware on a Teensy 4.1 in C for real-time data acquisition (position, calibration, IIR low-pass filtering) alongside closed-loop PWM motor control for force feedback rendering. </li>
-          <li>Designed and ran hardware validation for embedded testing, including static-noise characterization of potentiometer and encoder signals, open-loop BLDC motor control and magnetic encoder verification via SimpleFOC/I2C, and multi-channel IMU + barometer sensor fusion (complementary filtering with zero-velocity updates) across separate I2C buses. </li>
+          <li><b>2nd author</b> on <i>PHABS: A Portable Haptic Device for Force-Annotated Bimanual Teleoperation Data</i>, submitted to the IEEE International Conference on Robotics &amp; Automation (<b>ICRA 2027</b>)</li>
+          <li>Wrote <b>C firmware</b> on a Teensy 4.1 integrating <b>12 sensors</b> (BNO055 IMUs, BMP388 barometers, ToF, AS5048B encoders) over dual <b>I2C</b> buses and <b>UART</b>, with IIR-filtered real-time acquisition and closed-loop PWM force feedback streamed to a MuJoCo simulation</li>
+          <li>Validated hardware through potentiometer and encoder noise characterization, closed-loop BLDC control with SimpleFOC, and 3-channel IMU + barometer <b>sensor fusion</b> (complementary filtering with zero-velocity updates) across separate I2C buses</li>
         </ul>
-        <div class="media-slot">
-          <svg class="media-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h5l2 2h5v10H4V4z" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          Media to be released after publication
+        <div class="media-carousel" aria-label="PHABS image carousel">
+          <div class="carousel-track">
+            <div class="carousel-slide">
+              <img src="images/phabs.jpg" alt="PHABS, a portable haptic device for bimanual teleoperation, held by an operator" />
+            </div>
+          </div>
+          <button class="carousel-button prev" type="button" aria-label="Previous image">←</button>
+          <button class="carousel-button next" type="button" aria-label="Next image">→</button>
+          <div class="carousel-pagination">1/1</div>
         </div>
       </div>
 
@@ -117,10 +123,9 @@
           <span class="pill">Oct 2025 – Present</span>
         </div>
         <ul class="bullets">
-          <li>Overseeing wiring/component management among our 3 robots (autonomous, driver-controlled) in the annual RoboMaster North America competition across a team of 5 members and created standardized electronics practices.</li>
-        <li>Designed slip ring PCB to distribute 6 24V power wires across 3 lines and 12 signal wires (CAN, UART) in EasyEDA, using Phoenix, JST-XH, JST-GH, and aviator connectors. </li>
-        <li>Designing a 4 layer power (5V, 12V, 24V) signal distribution (CAN, UART) PCB for a competition robotics platform, integrating slip ring, motor controller, and buck conversion into a single board to reduce wiring complexity and failure points in EasyEDA.</li>
-        <li>Evaluating magnetic rotary encoder ICs (AS5047P, AS5048A/B, AS5600, MT6835) across SPI/I²C interfaces, resolution (12–21 bit), and sampling rate to replace a failure-prone commercial encoder with a lower-cost, more reliable custom design with Altium and Autodesk Inventor.</li>
+          <li>Designed a 1.75&Prime; <b>4-layer</b> custom magnetic encoder (AS5047P) PCB over SPI, using an STM32G431 with a custom CAN transceiver (SN65HVD230). Chose 14-bit resolution to replace a failure-prone commercial encoder, achieving <b>70% lower cost</b> using <b>Altium</b> and <b>EasyEDA</b>.</li>
+          <li>Designed 2-layer power (5V, 24V) and signal distribution (CAN, UART) PCBs in <b>EasyEDA</b> using Phoenix, JST-XH, JST-GH, and aviator connectors; integrated slip ring, motor controller, and buck conversion into 2 boards to reduce wiring complexity and failure points.</li>
+          <li>Overseeing wiring/component management among our 3 robots (autonomous, driver-controlled) in the annual RoboMaster North America competition across a team of <b>5 members</b> and created standardized electronics practices.</li>
         </ul>
         <div class="pdf-carousel" data-pdf="images/tr-slides.pdf" tabindex="0" aria-label="Triton Robotics presentation slides">
           <canvas class="pdf-canvas"></canvas>
@@ -299,6 +304,9 @@
               <img src="images/ece5-robot.png" alt="ECE 5 Robot" />
             </div>
           </div>
+          <button class="carousel-button prev" type="button" aria-label="Previous image">←</button>
+          <button class="carousel-button next" type="button" aria-label="Next image">→</button>
+          <div class="carousel-pagination">1/1</div>
         </div>
       </div>
 
@@ -371,6 +379,33 @@
           <li>Strengthened students' critical thinking and problem-solving skills through targeted exercises</li>
         </ul>
       </div>
+
+      <div class="entry-card compact">
+        <div class="award-badge">Teaching</div>
+        <h3>Python Mentor</h3>
+        <div class="entry-meta">
+          <span class="role-label">Python Lead Mentor, Organizer</span>
+          <span class="pill">Oct 2023 – Jun 2025</span>
+          <span class="location-tag">La Crescenta, CA</span>
+        </div>
+        <ul class="bullets">
+          <li>Taught a first-ever <b>free Python class to 30+ 6th graders</b> with little-to-no coding experience for 10 weeks after coordinating with a local elementary school</li>
+          <li>Designed curriculum and slide presentations completely from scratch; led 10 mentors (3:1 mentor-mentee ratio)</li>
+        </ul>
+      </div>
+
+      <div class="entry-card compact">
+        <div class="award-badge">Teaching</div>
+        <h3>FIRST Lego League (FLL)</h3>
+        <div class="entry-meta">
+          <span class="role-label">FLL Mentor</span>
+          <span class="pill">Sep 2022 – Dec 2024</span>
+          <span class="location-tag">La Crescenta, CA</span>
+        </div>
+        <ul class="bullets">
+          <li>Taught kids ages 8–12 about FIRST Lego League competitions; guided them through building structural attachments and SPIKE Prime coding</li>
+        </ul>
+      </div>
     </div>
   </div>
 </section>
@@ -405,7 +440,7 @@
       <a href="mailto:vbenedicto@ucsd.edu" class="btn btn-primary">vbenedicto@ucsd.edu</a>
       <a href="https://linkedin.com/in/vela-benedicto" target="_blank" rel="noopener" class="btn btn-outline-light">LinkedIn</a>
     </div>
-    <p class="footer-copy">&copy; 2025 Vela Benedicto</p>
+    <p class="footer-copy">&copy; 2026 Vela Benedicto</p>
   </div>
 </footer>
 
